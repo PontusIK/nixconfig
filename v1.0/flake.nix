@@ -8,7 +8,17 @@
         stylix.url = "github:danth/stylix";
         nixpkgs.follows = "nixos-cosmic/nixpkgs";
         nixos-cosmic.url = "github:lilyinstarlight/nixos-cosmic";
+        nvf.url = "github:notashelf/nvf";
     };
 
-    outputs = {}
+    outputs = { self, nixpkgs, nvf, ... }: {
+
+        nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+            modules = [
+                ./config/config.nix
+                nvf.nixosModules.default
+            ];
+        };
+    };
 }
+

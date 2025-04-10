@@ -96,15 +96,12 @@
     neovim = {
       enable = true;
       defaultEditor = true;
-      extraConfig = ''
+      configure.customRC = ''
         lua << EOF
-          vim.opt.tabstop = 2
-	  vim.opt.shiftwidth = 2
-	  vim.opt.expandtab = true
-
-	  vim.opt.number = true
-	  vim.opt.relativenumber = false
-	EOF
+	  vim.o.tabstop = 2
+	  vim.o.shiftwidth = 2
+	  vim.o.expandtab = tab
+        EOF
       '';
     };
     git.enable = true;

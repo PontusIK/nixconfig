@@ -104,13 +104,6 @@
     neovim = {
       enable = true;
       defaultEditor = true;
-      configure.customRC = ''
-        lua << EOF
-	  vim.o.tabstop = 2
-	  vim.o.shiftwidth = 2
-	  vim.o.expandtab = tab
-        EOF
-      '';
     };
     git.enable = true;
   };

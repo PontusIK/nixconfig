@@ -22,7 +22,7 @@
     };
   };
 
-  services.virtualboxGuest.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
 
   networking.hostName = "nixbox"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

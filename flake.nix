@@ -4,13 +4,27 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
       nixbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	modules = [ ./config/config.nix ];
+	modules = [
+	  ./config/config.nix
+	  home-manager.nixosModules.home-manager
+	  {
+	    home-manager = {
+	      useGlobalPkgs = true;
+	      useUserPackages = true;
+	      users.pontus = ./config/home.nix;
+	    };
+	  }
+	];
       };
     };
   };

@@ -28,6 +28,7 @@
         set number
       '';
     };
+    ghostty.enable = true;
   };
 
   home.stateVersion = "24.11";

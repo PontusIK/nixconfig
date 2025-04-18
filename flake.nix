@@ -14,10 +14,17 @@
     nixosConfigurations = {
       nixbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-	modules = [
-	  ./config/config.nix
-	  home-manager.nixosModules.home-manager
-	];
+        modules = [
+          ./config/config.nix
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.pontus = import ./config/home.nix;
+            };
+          }
+        ];
       };
     };
   };

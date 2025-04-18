@@ -9,21 +9,23 @@
     EDITOR = "nvim";
   };
 
+  home.packages = with pkgs; [
+    cowsay
+  ];
+
   programs = {
     git = {
-      package = pkgs.git;
       enable = true;
       # user name & email from secrets?
     };
     neovim = {
-      package = pkgs.neovim;
       enable = true;
       defaultEditor = true;
       extraConfig = ''
         set tabstop=2
-	set shiftwidth=2
-	set expandtab
-	set number
+        set shiftwidth=2
+        set expandtab
+        set number
       '';
     };
   };

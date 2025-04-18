@@ -29,6 +29,7 @@
       '';
     };
     ghostty.enable = true;
+    alacritty.enable = true;
   };
 
   home.stateVersion = "24.11";

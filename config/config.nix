@@ -100,15 +100,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  programs = {
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-    };
-    git.enable = true;
-  };
-
- 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

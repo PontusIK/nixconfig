@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
+      ./cosmic.nix
     ];
 
   # Bootloader.
@@ -52,8 +53,11 @@
     LC_TIME = "sv_SE.UTF-8";
   };
 
-  services.desktopManager.cosmic.enable = true;
-  services.displayManager.cosmic-greeter.enable = true;
+  services.xserver = {
+    enable = true;
+#    displayManager.lightdm.enable = true;
+#    desktopManager.budgie.enable = true;
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -113,6 +117,7 @@
     dates = "weekly";
     options = "--delete-older-than 30d";
   };
+  nix.settings.auto-optimise-store = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

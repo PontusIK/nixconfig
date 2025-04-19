@@ -10,7 +10,8 @@
   };
 
   home.packages = with pkgs; [
-    cowsay
+    neofetch
+    brave
   ];
 
   programs = {
@@ -28,8 +29,7 @@
         set number
       '';
     };
-    ghostty.enable = true;
-    alacritty.enable = true;
+    kitty = enable;
   };
 
   home.stateVersion = "24.11";

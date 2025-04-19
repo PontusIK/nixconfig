@@ -1,1 +1,3 @@
-# flakes för min nixos configuration
+# My NixOS configuration
+
+wip

@@ -29,7 +29,7 @@
         set number
       '';
     };
-    kitty.enable = true;
+    ghostty.enable = true;
   };
 
   home.stateVersion = "24.11";

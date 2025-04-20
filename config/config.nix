@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-      ./cosmic.nix
+#      ./cosmic.nix
     ];
 
   # Bootloader.
@@ -55,8 +55,8 @@
 
   services.xserver = {
     enable = true;
-#    displayManager.lightdm.enable = true;
-#    desktopManager.budgie.enable = true;
+    displayManager.lightdm.enable = true;
+    desktopManager.budgie.enable = true;
   };
 
   # Configure keymap in X11

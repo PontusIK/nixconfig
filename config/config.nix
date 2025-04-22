@@ -8,7 +8,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-      ./cosmic.nix
+#      ./cosmic.nix
+      ./budgie.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -78,9 +79,16 @@
     isNormalUser = true;
     description = "pontus";
     extraGroups = [ "networkmanager" "wheel" ];
+    initialPassword = "pswrd";
     packages = with pkgs; [
     #  thunderbird
     ];
+  };
+
+  users.users.zoecho = {
+    isNormalUser = true;
+    description = "zoecho";
+    extraGroups = [ "networkmanager" "wheel" ];
   };
   
   home-manager = {

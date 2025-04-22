@@ -53,11 +53,7 @@
     LC_TIME = "sv_SE.UTF-8";
   };
 
-  services.xserver = {
-    enable = true;
-    displayManager.lightdm.enable = true;
-    desktopManager.budgie.enable = true;
-  };
+  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -110,6 +106,8 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    kitty
+    wofi
   ];
 
   nix.gc = {

@@ -8,7 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware.nix
-#      ./cosmic.nix
+      ./cosmic.nix
     ];
 
   # Bootloader.
@@ -52,8 +52,6 @@
     LC_TELEPHONE = "sv_SE.UTF-8";
     LC_TIME = "sv_SE.UTF-8";
   };
-
-  programs.hyprland.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

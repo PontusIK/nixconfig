@@ -79,18 +79,11 @@
     isNormalUser = true;
     description = "pontus";
     extraGroups = [ "networkmanager" "wheel" ];
-    initialPassword = "pswrd";
     packages = with pkgs; [
     #  thunderbird
     ];
   };
 
-  users.users.zoecho = {
-    isNormalUser = true;
-    description = "zoecho";
-    extraGroups = [ "networkmanager" "wheel" ];
-  };
-  
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;

@@ -5,7 +5,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-24.11";
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-cosmic = {
@@ -20,7 +20,8 @@
         system = "x86_64-linux";
         modules = [
           ./config/config.nix
-         nixos-cosmic.nixosModules.default
+          home-manager.nixosModules.default
+          nixos-cosmic.nixosModules.default
           {
             nix.settings = {
               substituters = [ "https://cosmic.cachix.org/" ];

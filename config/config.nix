@@ -93,6 +93,14 @@
     #  thunderbird
     ];
   };
+  
+  home-manager.nixosModules.home-manager
+  
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    users.pontus = import ./config/home.nix;
+  };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 

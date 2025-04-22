@@ -11,19 +11,8 @@
       ./cosmic.nix
     ];
 
-  # Bootloader.
-  # vm only, change to appropriate when on host
-  boot = {
-    loader = {
-      grub = {
-        enable = true;
-        device = "/dev/sda";
-        useOSProber = true;
-      };
-    };
-  };
-
-  virtualisation.virtualbox.guest.enable = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
   networking.hostName = "nixbox"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -110,9 +99,7 @@
   environment.systemPackages = with pkgs; [
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
-    kitty
-    wofi
-  ];
+    ];
 
   nix.gc = {
     automatic = true;

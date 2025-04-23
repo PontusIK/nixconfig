@@ -93,7 +93,10 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.pontus = import ./home.nix;
+    users.pontus = imports = [
+      ./home.nix
+      nvf.homeManagerModules.default
+    ];
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

@@ -26,7 +26,6 @@
           ./config/config.nix
           home-manager.nixosModules.default
           nixos-cosmic.nixosModules.default
-          nvf.homeManagerModules.default
        ];
       };
     };

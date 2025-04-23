@@ -2,6 +2,8 @@
 
 {
 
+  imports = [ ./nvf.nix ];
+
   home.username = "pontus";
   home.homeDirectory = "/home/pontus";
 

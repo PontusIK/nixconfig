@@ -12,9 +12,13 @@
       url = "github:lilyinstarlight/nixos-cosmic";
       inputs.nixpkgs.follows = "nixos-cosmic/nixpkgs-stable";
     };
+    nvf = {
+      url = "github:notashelf/nvf";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, ... }: {
+  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nvf, ... }: {
     nixosConfigurations = {
       nixbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
@@ -22,6 +26,7 @@
           ./config/config.nix
           home-manager.nixosModules.default
           nixos-cosmic.nixosModules.default
+          nvf.homeManagerModules.default
        ];
       };
     };

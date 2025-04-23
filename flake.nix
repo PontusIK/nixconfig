@@ -18,18 +18,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, nixos-cosmic, nvf, ... }: {
+  outputs = { inputs, nixpkgs }: {
     nixosConfigurations = {
       nixbox = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [
           ./config/config.nix
-          home-manager.nixosModules.default
-          nixos-cosmic.nixosModules.default
+          inputs.home-manager.nixosModules.default
+          inputs.nixos-cosmic.nixosModules.default
         ];
-        specialArgs = {
-          inherit nvf;
-        };
       };
     };
   };

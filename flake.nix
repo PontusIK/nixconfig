@@ -26,7 +26,10 @@
           ./config/config.nix
           home-manager.nixosModules.default
           nixos-cosmic.nixosModules.default
-       ];
+        ];
+        specialArgs = {
+          inherit nvf;
+        };
       };
     };
   };

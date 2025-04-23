@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ pkgs, nvf, ... }:
 
 {
   imports = [
@@ -93,7 +93,7 @@
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.pontus = imports = [
+    users.pontus.imports = [
       ./home.nix
       nvf.homeManagerModules.default
     ];

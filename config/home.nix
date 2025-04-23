@@ -19,6 +19,7 @@
   programs = {
     git = {
       enable = true;
+      extraConfig.core.askPass = "";
       # user name & email from secrets?
     };
    ghostty.enable = true;

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, nvf, ... }:
+{ inputs, ... }:
 
 {
   imports = [
@@ -95,7 +95,7 @@
     useUserPackages = true;
     users.pontus.imports = [
       ./home.nix
-      nvf.homeManagerModules.default
+      inputs.nvf.homeManagerModules.default
     ];
   };
 

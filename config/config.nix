@@ -104,8 +104,6 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  environment.systemPackages = with pkgs; [];
-
   nix.gc = {
     automatic = true;
     dates = "weekly";

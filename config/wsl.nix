@@ -5,7 +5,7 @@
 # NixOS-WSL specific options are documented on the NixOS-WSL repository:
 # https://github.com/nix-community/NixOS-WSL
 
-{ inputs, ... }:
+{ inputs, pkgs, ... }:
 
 {
   imports = [
@@ -29,6 +29,9 @@
         username = "nixos";
         homeDirectory = "/home/nixos";
 	      stateVersion = "24.11";
+        packages = with pkgs; [
+          maven
+        ];
       };
       programs = {
         git.enable = true;

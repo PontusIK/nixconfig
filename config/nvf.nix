@@ -20,6 +20,8 @@
         enableTreesitter = true;
 
         nix.enable = true;
+        java.enable = true;
+        clang.enable = true;
       };
     };
   };

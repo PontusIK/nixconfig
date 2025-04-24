@@ -31,6 +31,11 @@
           inputs.nixos-cosmic.nixosModules.default
         ];
       };
+      wsl = nixpkgs.lib.nixosSystem {
+      	system = "x86_64-linux";
+	      specialArgs = { inherit inputs; };
+	      modules = [ ./config/wsl.nix ];
+      };
     };
   };
 

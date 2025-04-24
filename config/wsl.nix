@@ -10,7 +10,7 @@
 {
   imports = [
     # include NixOS-WSL modules
-    <nixos-wsl/modules>
+    <nixos-wsl/modules> # --impure
     inputs.home-manager.nixosModules.default
   ];
 
@@ -35,7 +35,8 @@
       };
       programs = {
         git.enable = true;
-	      home-manager.enable = true;
+        java.enable = true;
+        home-manager.enable = true;
       };
     };
   };

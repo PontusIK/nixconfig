@@ -33,6 +33,10 @@
         nix.enable = true;
         java.enable = true;
         clang.enable = true;
+        markdown = {
+          enable = true;
+          extensions.render-markdown-nvim.enable = true;
+        };
       };
 
       keymaps = [

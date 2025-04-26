@@ -36,6 +36,7 @@
       programs = {
         git.enable = true;
         java.enable = true;
+        fastfetch.enable = true;
         home-manager.enable = true;
       };
     };

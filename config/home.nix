@@ -14,6 +14,7 @@
     fastfetch
     brave
     tree
+    xclip
   ];
 
   programs = {

@@ -1,8 +1,7 @@
 { pkgs, ... }:
 
 {
-
-  imports = [ ./nvf.nix ];
+  imports = [./nvf.nix];
 
   home.username = "pontus";
   home.homeDirectory = "/home/pontus";
@@ -12,8 +11,9 @@
   };
 
   home.packages = with pkgs; [
-    neofetch
+    fastfetch
     brave
+    tree
   ];
 
   programs = {
@@ -22,7 +22,7 @@
       extraConfig.core.askPass = "";
       # user name & email from secrets?
     };
-   ghostty.enable = true;
+    ghostty.enable = true;
   };
 
   home.stateVersion = "24.11";

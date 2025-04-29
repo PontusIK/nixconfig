@@ -1,7 +1,6 @@
 { ... }:
 
 {
-
   programs.nvf = {
     enable = true;
 
@@ -26,7 +25,7 @@
 
       languages = {
         enableLSP = true;
-        enableFormat = true;
+        enableFormat = false;
         enableTreesitter = true;
         enableExtraDiagnostics = true;
 

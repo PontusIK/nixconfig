@@ -8,7 +8,6 @@
 
   imports = [
     ./hardware.nix
-#    ./cosmic.nix
     ./budgie.nix
   ];
 

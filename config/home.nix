@@ -2,6 +2,8 @@
 
 {
 
+  imports = [ ./nvf.nix ];
+
   home.username = "pontus";
   home.homeDirectory = "/home/pontus";
 
@@ -17,19 +19,10 @@
   programs = {
     git = {
       enable = true;
+      extraConfig.core.askPass = "";
       # user name & email from secrets?
     };
-    neovim = {
-      enable = true;
-      defaultEditor = true;
-      extraConfig = ''
-        set tabstop=2
-        set shiftwidth=2
-        set expandtab
-        set number
-      '';
-    };
-    ghostty.enable = true;
+   ghostty.enable = true;
   };
 
   home.stateVersion = "24.11";

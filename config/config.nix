@@ -2,15 +2,15 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, ... }:
+{ inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware.nix
-#      ./cosmic.nix
-      ./budgie.nix
-    ];
+
+  imports = [
+    ./hardware.nix
+#    ./cosmic.nix
+    ./budgie.nix
+  ];
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -74,33 +74,25 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.pontus = {
     isNormalUser = true;
     description = "pontus";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
   };
 
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    users.pontus = import ./home.nix;
+    users.pontus.imports = [
+      ./home.nix
+      inputs.nvf.homeManagerModules.default
+    ];
   };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-  #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-  #  wget
-    ];
 
   nix.gc = {
     automatic = true;
